@@ -19,6 +19,19 @@ def to_float(value):
     return float(value)
 
 
+def first_four(value):
+    """
+    Parameters:
+        'value': input value (pandas Timestamp object)
+    Returns:
+        First four characters of the value.
+    This will be used in order to only get the year numbers
+    for the data, and leave out unnecessary monthly/daily data.
+    """
+    value = str(value)
+    return value[:4]
+
+
 def make_tdf(filename, primary_col, street, region,
              secondary_region=None, secondary_col=None):
     """
@@ -65,6 +78,9 @@ def make_tdf(filename, primary_col, street, region,
     annual['council_district'] = region
     if secondary_region is not None:
         annual['secondary_council_district'] = secondary_region
+
+    # Re-storing only year in 'Date' column:
+    annual['Date'] = annual['Date'].apply(first_four)
 
     return annual
 
