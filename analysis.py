@@ -3,7 +3,8 @@ import pandas as pd
 import geopandas as gpd
 import seaborn as sns
 import matplotlib.pyplot as plt
-# import seaborn as sn
+
+sns.set()
 
 # change question a to...
     # how many different bike infrastructure in seattle during different years?
@@ -27,22 +28,26 @@ def main():
 
     # ploting a line graph for the num of infrastructure for each year 2014-2020
 
-    existing_file = pd.read_csv('Existing_Bike_Facilities.csv')
-    df_file = existing_file.replace(",", "")
-    df_file = existing_file[(existing_file['CATEGORY'] == 'BKF-SHW') |
-                            (existing_file['CATEGORY'] == 'BKF-NGW')]
-    df_file = df_file[(df_file['INSTALL_DATE'] >= '2014') &
-                      (df_file['INSTALL_DATE'] <= '2020')]
-    # plot is NOT running
-    sns.relplot(data=df_file, x='INSTALL_DATE', y='CATEGORY', kind='line')
+    # Loading in file as pandas dataframe:
+    existing_file = pd.read_csv('Data\\existing_bike_facilities\\Existing_Bike_Facilities.csv')
+    # Getting only necessary columns:
+    existing_file = existing_file[['UNITDESC', 'CATEGORY', 'INSTALL_DATE',
+                                   'PRIMARYDISTRICTCD', 'SECONDARYDISTRICTCD',
+                                   'SHAPE_Length']]
+    print(existing_file.head())
 
-    # making a graph for each year with the different bike infrastructure
+    # df_file = existing_file[(existing_file['CATEGORY'] == 'BKF-SHW') |
+    #                         (existing_file['CATEGORY'] == 'BKF-NGW')]
+    # df_file = df_file[(df_file['INSTALL_DATE'] >= '2014') &
+    #                   (df_file['INSTALL_DATE'] <= '2020')]
+    # # plot is NOT running
+    # sns.relplot(data=df_file, x='INSTALL_DATE', y='CATEGORY', kind='line')
 
-    plan_file = gpd.read_file('/Data/Planned_Bike_Facilities/Planned_Bike_Facilities.shp')
+    # # making a graph for each year with the different bike infrastructure
 
-    fig, [[ax1, ax2], [ax3, ax4]] = plt.subplots(2, 2, figsize=(20, 10))
-    
+    # plan_file = gpd.read_file('/Data/Planned_Bike_Facilities/Planned_Bike_Facilities.shp')
 
+    # fig, [[ax1, ax2], [ax3, ax4]] = plt.subplots(2, 2, figsize=(20, 10))
 
 
 if __name__ == "__main__":
