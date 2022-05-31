@@ -31,10 +31,33 @@ def main():
     plt.xlabel('Dates of Installment')
     plt.ylabel('Num of Bike Infrastructures')
     plt.title('Number of Bike Infrastructures 2010-2020')
-    plt.show()
+    # plt.show()
+    plt.savefig('bike_infrastructures_plot.png')
 
     # map the bike infractures
-    
+
+    planned_file = gpd.read_file('Data/Planned_Bike_Facilities/Planned_Bike_Facilities.shp')
+    print(planned_file.columns)
+    # planned_file.plot()
+
+    fig, [[ax1, ax2], [ax3, ax4]] = plt.subplots(2, 2, figsize=(20, 10))
+    map_2010 = planned_file.loc[2010.0]
+    map_2010.plot(column='Category', legend=True, ax=ax1)
+    ax1.set_title('2010 infrastructures')
+
+    map_2012 = planned_file.loc[2012.0]
+    map_2012.plot(column='Category', legend=True, ax=ax2)
+    ax2.set_title('2012 infrastructures')
+
+    map_2014 = planned_file.loc[2014.0]
+    map_2014.plot(column='Category', legend=True, ax=ax3)
+    ax3.set_title('2014 infrastructures')
+
+    map_2020 = planned_file.loc[2020.0]
+    map_2020.plot(column='Category', legend=True, ax=ax4)
+    ax4.set_title('2020 infrastructures')
+    plt.savefig('bike_infrastructures_map.png')
+
 
 if __name__ == "__main__":
     main()
