@@ -37,7 +37,7 @@ def make_feature(name_dict, test):
     np.array(bike)
     plt.bar(bike,importance)
     plt.xlabel("Bike Infrastructure")
-    plt.title("Feature Importances")
+    plt.title(test + " Feature Importances")
     image = test + '.png'
     plt.savefig(image)
     print(importance)
@@ -100,12 +100,12 @@ def main():
     }
     print("test")
 
-    make_feature(name_dict1, 'Distrcit1')
+    # make_feature(name_dict1, 'Distrcit1')
     # make_feature(name_dict2, 'District2')
     # make_feature(name_dict3, 'District3')
     # make_feature(name_dict4, 'District4')
-    # maske_feature(name_dict6, 'District6')
-    # make_feature(name_dict7, 'District7')
+    # make_feature(name_dict6, 'District6')
+    make_feature(name_dict7, 'District7')
     
 
 
