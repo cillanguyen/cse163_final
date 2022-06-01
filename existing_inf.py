@@ -32,6 +32,9 @@ def clean_data(filename):
     # (For some reason, the dates are already given as strings):
     df['INSTALL_DATE'] = df['INSTALL_DATE'].apply(lambda ts: ts[:4])
 
+    # Removing things in parentheses in 'UNITDESC' column:
+    df['UNITDESC'] = df['UNITDESC'].apply(lambda s: s.split(' (')[0])
+
     return df
 
 
@@ -68,13 +71,16 @@ def main():
     bike_data = clean_data('Data\\existing_bike_facilities\\' +
                            'Existing_Bike_Facilities.csv')
 
-    bike_data['STREET'] = bike_data['UNITDESC'].apply(lambda s: s.split('BETWEEN')[0])
+    bike_data['STREET'] = bike_data['UNITDESC'].apply(
+        lambda s: s.split('BETWEEN')[0]
+    )
     bike_data['START'] = bike_data['UNITDESC'].apply(start)
     bike_data['END'] = bike_data['UNITDESC'].apply(end)
 
     bike_data = bike_data[['CATEGORY', 'INSTALL_DATE', 'PRIMARYDISTRICTCD',
                            'SECONDARYDISTRICTCD', 'SHAPE_Length',
                            'STREET', 'START', 'END']]
+    print(bike_data.head())
 
     with open('Data\\refined_data\\existing_facilities_data.pickle',
               'wb') as f:
