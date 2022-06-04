@@ -68,8 +68,8 @@ def end(s):
 
 def main():
 
-    bike_data = clean_data('Data\\existing_bike_facilities\\' +
-                           'Existing_Bike_Facilities.csv')
+    path = 'Data\\existing_bike_facilities\\Existing_Bike_Facilities.csv'
+    bike_data = clean_data(path)
 
     bike_data['STREET'] = bike_data['UNITDESC'].apply(
         lambda s: s.split('BETWEEN')[0]
@@ -80,11 +80,11 @@ def main():
     bike_data = bike_data[['CATEGORY', 'INSTALL_DATE', 'PRIMARYDISTRICTCD',
                            'SECONDARYDISTRICTCD', 'SHAPE_Length',
                            'STREET', 'START', 'END']]
-    print(bike_data.head())
 
     with open('Data\\refined_data\\existing_facilities_data.pickle',
               'wb') as f:
         pickle.dump(bike_data, f)
+    bike_data.to_csv('Data\\refined_data\\existing_facilities_data_csv.csv')
 
 
 if __name__ == '__main__':
