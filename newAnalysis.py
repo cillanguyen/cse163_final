@@ -65,7 +65,7 @@ def main():
     data_2021.plot(column='CATEGORY', legend=True, ax=ax4)
     ax4.set_title('Bike Infrastructures built in 2018-2021')
 
-    # plt.savefig('bike_infrastructures_map.png')
+    plt.savefig('bike_infrastructures_map.png')
 
 
 if __name__ == "__main__":
