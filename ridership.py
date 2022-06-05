@@ -199,10 +199,10 @@ def main():
     final_df = final_df.reset_index(drop=True)
 
     # Saving final pandas DataFrame to file using pickle:
-    with open('data\\refined_data\\total_bike_counters.pickle', 'wb') as f:
+    with open('Data\\refined_data\\total_bike_counters.pickle', 'wb') as f:
         pickle.dump(final_df, f)
-
-    print(final_df)
+    # Saving final pandas DataFrame to CSV file:
+    final_df.to_csv('Data\\refined_data\\total_bike_counters_csv.csv')
 
 
 if __name__ == '__main__':

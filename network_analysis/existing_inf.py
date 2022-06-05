@@ -18,7 +18,7 @@ def clean_data(filename):
              'PRIMARYDISTRICTCD', 'SECONDARYDISTRICTCD',
              'SHAPE_Length']]
 
-    # Dropping rows with missing data:
+    # Dropping rows with missing data (unusable):
     no_street = df['UNITDESC'].notnull()
     no_category = df['CATEGORY'].notnull()
     no_date = df['INSTALL_DATE'].notnull()
@@ -28,9 +28,10 @@ def clean_data(filename):
     # Re-indexing:
     df.reset_index(drop=True, inplace=True)
 
-    # Recording dates as only the years:
-    # (For some reason, the dates are already given as strings):
-    df['INSTALL_DATE'] = df['INSTALL_DATE'].apply(lambda ts: ts[:4])
+    # Recording dates as only the years;
+    # (For some reason, the dates are already given as strings
+    # and not Timestamp objects):
+    df['INSTALL_DATE'] = df['INSTALL_DATE'].apply(lambda ts: int(ts[:4]))
 
     # Removing things in parentheses in 'UNITDESC' column:
     df['UNITDESC'] = df['UNITDESC'].apply(lambda s: s.split(' (')[0])

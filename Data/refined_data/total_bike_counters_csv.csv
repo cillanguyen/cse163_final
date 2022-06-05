@@ -1,0 +1,101 @@
+,Date,riders,street,council_district,secondary_council_district
+0,2015,217687.0,2nd Ave,7,
+1,2016,231195.0,2nd Ave,7,
+2,2017,236762.0,2nd Ave,7,
+3,2018,313503.0,2nd Ave,7,
+4,2019,559946.0,2nd Ave,7,
+5,2020,174018.0,2nd Ave,7,
+6,2021,178174.0,2nd Ave,7,
+7,2022,56965.0,2nd Ave,7,
+8,2019,9321.0,7th Ave,7,
+9,2020,12767.0,7th Ave,7,
+10,2021,13664.0,7th Ave,7,
+11,2022,3846.0,7th Ave,7,
+12,2014,199544.0,26th Ave SW,1,
+13,2015,42990.0,26th Ave SW,1,
+14,2016,29469.0,26th Ave SW,1,
+15,2017,34419.0,26th Ave SW,1,
+16,2018,23598.0,26th Ave SW,1,
+17,2019,35473.0,26th Ave SW,1,
+18,2020,25665.0,26th Ave SW,1,
+19,2021,24855.0,26th Ave SW,1,
+20,2014,89898.0,39th Ave NE,4,
+21,2015,93794.0,39th Ave NE,4,
+22,2016,80788.0,39th Ave NE,4,
+23,2017,53803.0,39th Ave NE,4,
+24,2018,16220.0,39th Ave NE,4,
+25,2014,127355.0,Broadway,3,
+26,2015,99595.0,Broadway,3,
+27,2016,114399.0,Broadway,3,
+28,2017,101335.0,Broadway,3,
+29,2018,108279.0,Broadway,3,
+30,2019,106905.0,Broadway,3,
+31,2020,41756.0,Broadway,3,
+32,2021,57587.0,Broadway,3,
+33,2014,404721.0,Burke-Gilman Trl,4,
+34,2015,414548.0,Burke-Gilman Trl,4,
+35,2016,405393.0,Burke-Gilman Trl,4,
+36,2017,376385.0,Burke-Gilman Trl,4,
+37,2018,231797.0,Burke-Gilman Trl,4,
+38,2019,367992.0,Burke-Gilman Trl,4,
+39,2020,400265.0,Burke-Gilman Trl,4,
+40,2021,22274.0,Burke-Gilman Trl,4,
+41,2022,73852.0,Burke-Gilman Trl,4,
+42,2014,6769.0,Chief Sealth Trl,2,
+43,2015,6616.0,Chief Sealth Trl,2,
+44,2016,0.0,Chief Sealth Trl,2,
+45,2017,0.0,Chief Sealth Trl,2,
+46,2018,0.0,Chief Sealth Trl,2,
+47,2019,0.0,Chief Sealth Trl,2,
+48,2020,13440.0,Chief Sealth Trl,2,
+49,2021,11357.0,Chief Sealth Trl,2,
+50,2014,417819.0,Elliott Bay Trl,7,
+51,2015,410464.0,Elliott Bay Trl,7,
+52,2016,411192.0,Elliott Bay Trl,7,
+53,2017,392362.0,Elliott Bay Trl,7,
+54,2018,439672.0,Elliott Bay Trl,7,
+55,2019,448349.0,Elliott Bay Trl,7,
+56,2020,387177.0,Elliott Bay Trl,7,
+57,2021,618979.0,Elliott Bay Trl,7,
+58,2022,52047.0,Elliott Bay Trl,7,
+59,2012,305422.0,Fremont Brg,7,6.0
+60,2013,1856558.0,Fremont Brg,7,6.0
+61,2014,2012392.0,Fremont Brg,7,6.0
+62,2015,1973112.0,Fremont Brg,7,6.0
+63,2016,1964940.0,Fremont Brg,7,6.0
+64,2017,1926270.0,Fremont Brg,7,6.0
+65,2018,2103760.0,Fremont Brg,7,6.0
+66,2019,2374292.0,Fremont Brg,7,6.0
+67,2020,1017972.0,Fremont Brg,7,6.0
+68,2021,713626.0,Fremont Brg,7,6.0
+69,2022,192455.0,Fremont Brg,7,6.0
+70,2013,3623.0,Mountains to Sound Trl,3,
+71,2014,247706.0,Mountains to Sound Trl,3,
+72,2015,246047.0,Mountains to Sound Trl,3,
+73,2016,186698.0,Mountains to Sound Trl,3,
+74,2017,205635.0,Mountains to Sound Trl,3,
+75,2018,199369.0,Mountains to Sound Trl,3,
+76,2019,200437.0,Mountains to Sound Trl,3,
+77,2020,184210.0,Mountains to Sound Trl,3,
+78,2021,107904.0,Mountains to Sound Trl,3,
+79,2014,205563.0,NW 58th St,6,
+80,2015,62055.0,NW 58th St,6,
+81,2016,42056.0,NW 58th St,6,
+82,2017,39716.0,NW 58th St,6,
+83,2018,40308.0,NW 58th St,6,
+84,2019,39973.0,NW 58th St,6,
+85,2020,31250.0,NW 58th St,6,
+86,2021,29346.0,NW 58th St,6,
+87,2014,283133.0,Spokane St Brg,1,2.0
+88,2015,299550.0,Spokane St Brg,1,2.0
+89,2016,297474.0,Spokane St Brg,1,2.0
+90,2017,275536.0,Spokane St Brg,1,2.0
+91,2018,293389.0,Spokane St Brg,1,2.0
+92,2019,321809.0,Spokane St Brg,1,2.0
+93,2020,285627.0,Spokane St Brg,1,2.0
+94,2021,239248.0,Spokane St Brg,1,2.0
+95,2022,52430.0,Spokane St Brg,1,2.0
+96,2018,509114.0,Westlake Ave N,7,
+97,2019,736218.0,Westlake Ave N,7,
+98,2020,278168.0,Westlake Ave N,7,
+99,2021,237261.0,Westlake Ave N,7,
