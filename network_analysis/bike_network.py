@@ -1,6 +1,7 @@
 import networkx as nx
 import pandas as pd
 import pickle
+import matplotlib.pyplot as plt
 
 
 def make_graph(data):
@@ -47,7 +48,7 @@ def get_all_networks():
     """
     Creates networkx graphs from bike infrastructure data and finds
     connectivity metric for each kind of bike infrastructure for every year,
-    along with an overall network connectivity. This means six networks
+    along with percent change per year. This means six networks
     per year, one for Bike Lanes (BL), Protected Bike Lanes (PBL),
     Neighborhood Greenways (NGW), Sharrows (SHW), Off-Street Paths
     (OFFST), and the overall bike network.
@@ -80,9 +81,8 @@ def get_all_networks():
             # type for the year:
             inf_data = present_data[present_data['CATEGORY'] == inf_type]
             # Making, analyzing specific infrastructure network:
-            connectivity.loc[year, inf_type] = get_total_connectivity(
-                make_graph(inf_data)
-            )
+            connectivity.loc[year, inf_type] = \
+                get_total_connectivity(make_graph(inf_data))
 
     # Saving connectivity DataFrame as pickle file:
     with open('network_analysis\\connectivity.pickle', 'wb') as f2:
@@ -90,9 +90,67 @@ def get_all_networks():
     # Saving connectivity DataFrame as CSV:
     connectivity.to_csv('network_analysis\\connectivity_csv.csv')
 
+    return connectivity
+
+
+def plot_connectivity(data):
+    """
+    Plots connectivity for all bike infrastructure types and overall
+    bike network over time, given connectivity DataFrame 'data'.
+    """
+    fig, ax = plt.subplots(1)
+
+    for col in ['Overall Network', 'Unprotected Bike Lanes',
+                'Protected Bike Lanes', 'Neighborhood Greenways',
+                'Sharrows', 'Off-Street Trails']:
+        data.plot(use_index=True, y=col, ax=ax, legend=True)
+    plt.xlabel('Year')
+    plt.ylabel('Connectivity Percent Change')
+    plt.title('Bike Network Connectivity Annual Percent Change')
+
+    plt.savefig('network_analysis\\connectivity_graph.png')
+
+
+def calc_percent_change(data):
+    """
+    Creates yearly percent change columns for each kind of bike infrastructure
+    in pandas DataFrame 'data', with first entries as 0.
+    """
+    columns = data.columns
+
+    for year in range(2012, 2022):
+        for col in columns:
+            # Renaming columns:
+            if col == 'Overall':
+                new_col = 'Overall Network'
+            elif col == 'BKF-BL':
+                new_col = 'Unprotected Bike Lanes'
+            elif col == 'BKF-PBL':
+                new_col = 'Protected Bike Lanes'
+            elif col == 'BKF-NGW':
+                new_col = 'Neighborhood Greenways'
+            elif col == 'BKF-SHW':
+                new_col = 'Sharrows'
+            elif col == 'BKF-OFFST':
+                new_col = 'Off-Street Trails'
+
+            # Since there is no data before 2012:
+            if year == 2012:
+                data.loc[year, new_col] = 0
+            # Calc. percent change for each infrastructure type, each year:
+            else:
+                prev = data.loc[year - 1, col]
+                pres = data.loc[year, col]
+                data.loc[year, new_col] = 100 * (pres - prev) / prev
+    data.to_csv('network_analysis\\connectivity_csv.csv')
+
+    return data
+
 
 def main():
-    get_all_networks()
+    data = get_all_networks()
+    data = calc_percent_change(data)
+    plot_connectivity(data)
 
 
 if __name__ == '__main__':
