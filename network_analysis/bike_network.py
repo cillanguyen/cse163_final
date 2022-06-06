@@ -1,3 +1,7 @@
+"""
+Models and analyzes the connectivity of the Seattle bike infrastructure
+network over time using networkx graphs.
+"""
 import networkx as nx
 import pandas as pd
 import pickle
@@ -98,15 +102,18 @@ def plot_connectivity(data):
     Plots connectivity for all bike infrastructure types and overall
     bike network over time, given connectivity DataFrame 'data'.
     """
-    fig, ax = plt.subplots(1)
+    fig, [ax1, ax2] = plt.subplots(2, sharex=True)
 
-    for col in ['Overall Network', 'Unprotected Bike Lanes',
-                'Protected Bike Lanes', 'Neighborhood Greenways',
-                'Sharrows', 'Off-Street Trails']:
-        data.plot(use_index=True, y=col, ax=ax, legend=True)
-    plt.xlabel('Year')
-    plt.ylabel('Connectivity Percent Change')
-    plt.title('Bike Network Connectivity Annual Percent Change')
+    columns = ['Unprotected Bike Lanes', 'Protected Bike Lanes',
+               'Neighborhood Greenways', 'Sharrows', 'Off-Street Trails']
+    data.plot(y=columns, ax=ax1, legend=True, figsize=(10, 5))
+    data.plot(y='Overall Network', ax=ax2, legend=True, figsize=(10, 5))
+
+    ax1.set_ylabel('Individual Percent Change')
+    ax2.set_ylabel('Overall Percent Change')
+    ax1.set_title('Bike Network Connectivity Annual Percent Change')
+    ax1.set_xticks([i for i in range(2012, 2023)])
+    ax2.set_xticks([i for i in range(2012, 2023)])
 
     plt.savefig('network_analysis\\connectivity_graph.png')
 
