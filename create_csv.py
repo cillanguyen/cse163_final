@@ -1,6 +1,6 @@
 from enum import unique
+from matplotlib.transforms import Bbox
 import pandas as pd
-# import matplotlib as plt
 import geopandas as gpd
 import seaborn as sns
 import matplotlib.pyplot as plt
@@ -44,11 +44,16 @@ def main():
     #     data = df[mask1 & mask2]
     #     # print(data)
     #     print(data)
-    with open('Data/refined_data/total_bike_counters.pickle', 'rb') as f:
-        df = pickle.load(f)
-        data = df[df['council_district']==7]
-        print(data)
-    
+
+    # with open('Data/refined_data/total_bike_counters.pickle', 'rb') as f:
+    #     df = pickle.load(f)
+    #     data = df[df['council_district']==2]
+    #     print(data)
+    # visualize the geospaial data
+    df = gpd.read_file('Data/existing_bike_facilities/Existing_Bike_Facilities.shp')
+    # print(df.columns)
+    df.plot(column='PRIMARYDIS', legend=True)
+    plt.savefig('Seattle.png')
 
     
 
