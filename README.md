@@ -7,6 +7,66 @@ CSE 163 FINAL:
 
 Must be DETAILED enough that your mentor can run your code.
 
+
+--AQUIRING DATA--
+
+All of the data we used can be found at the following Seattle governmental websites. Each page has options to download the data as CSV, SHP (if applicable), and other formats.
+
+
+Existing Bike Facilities (CSV): https://data.seattle.gov/dataset/Existing-Bike-Facilities/
+cd3j-uiyc#
+
+Planned Bike Facilities (CSV): https://data.seattle.gov/dataset/Planned-Bike-Facilities/t8ug-huzv
+
+Bike Counter Datasets (CSV):
+    
+   - Fremont Bridge: https://data.seattle.gov/Transportation/Fremont-Bridge-Bicycle-Counter/65db-xm6k
+
+   - Spokane St. Bridge: https://data.seattle.gov/Transportation/Spokane-St-Bridge-Bicycle-Counter/upms-nr8w
+
+   - Broadway: https://data.seattle.gov/Transportation/Broadway-Cycle-Track-North-Of-E-Union-St-Bicycle-C/j4vh-b42a
+    
+   - Chief Sealth Trail: https://data.seattle.gov/Transportation/Chief-Sealth-Trail-North-of-Thistle-Bicycle-Counte/uh8h-bme7
+    
+   - Elliot Bay Trail: https://data.seattle.gov/Transportation/Elliott-Bay-Trail-in-Myrtle-Edwards-Park-Bicycle-a/4qej-qvrz
+    
+   - Burke-Gilman Trail: https://data.seattle.gov/Transportation/Burke-Gilman-Trail-north-of-NE-70th-St-Bicycle-and/2z5v-ecg8
+    
+   - Mountains-To-Sound Trail: https://data.seattle.gov/Transportation/MTS-Trail-west-of-I-90-Bridge-Bicycle-and-Pedestri/u38e-ybnc
+    
+   - 2nd Avenue: https://data.seattle.gov/Transportation/2nd-Ave-Cycle-Track-North-of-Marion-St-Bicycle-Cou/avwm-i8ym
+    
+   - Westlake: https://data.seattle.gov/Transportation/Westlake-PBL-at-Newton-St-Bicycle-Counter/675b-cqew
+
+We also renamed the data files to simply the street each bike counter is on,
+with underscores for spaces.
+
+
+--1: CLEANING AND ORGANIZING DATA--
+
+ridership.py:
+    Run in order to combine and clean all of the data present in the various bicycle counter datasets. This takes a minute or two to run, since there are tens of thousands of rows in each of the nine datasets to process. It saves the final, combined dataset aggregated by year to pickle and CSV files.
+
+existing_inf.py:
+    Run in order to clean the existing bicycle infrastructure data in the "Existing Bike Facilities" CSV file. This returns the dataset broken down into streets, with start/end street intersections specified for each segment of bike infrastructure (important for networkx later). It is saved to pickle and CSV files.
+
+--2: RIDERSHIP ANALYSIS--
+
+ridership_graphing.py:
+    Run in order to plot the percent change in amount of bike riders recorded at both the various bike counters around Seattle and in total. The resulting plot is saved as "annual_ridership.png".
+
+--3: NETWORK ANALYSIS--
+
+bike_network.py:
+    Run in order to plot the percent change in the "Connectivity Metric" of Seattle's bike infrastructure over time. This is calculated and plotted for both each individual kind of bike infrastructure and for the overall system. This uses the 'networkx' module. The resulting plot is saved as "connectivity_graph.png".
+
+    The individual calculations for the Connectivity Metric for each kind of bike infrastructure, along with their percent changes, are saved to "connectivity_csv.csv" and "connectivity.pickle". The first six columns in the CSV file are the Connectivity Metric itself, whereas the following columns are the percent changes.
+
+
+
+
+
+
 newAnalysis.py:
 
 about the line graph:
