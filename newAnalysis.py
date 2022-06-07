@@ -5,8 +5,13 @@ import matplotlib.pyplot as plt
 
 
 def main():
-
-    # ploting a line graph for num of infrastructure each year 2014-2020
+    """
+    This function will return two graphs, a line plot and a map graph
+    The line graph represent the number of segemants of bike infrastructueres
+    in the year 2010-2021. The map graph will produce something similar but
+    using the Planned Bike Facilities dataset filtering based on the year
+    2010-2021 and categorized based on the different bike infrastructures.
+    """
 
     # read the data and filter based on year
     df = pd.read_csv('Existing_Bike_Facilities.csv', index_col='INSTALL_DATE',
