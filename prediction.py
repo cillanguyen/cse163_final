@@ -1,6 +1,4 @@
-# from locale import normalize
 import pandas as pd
-# from sklearn.tree import DecisionTreeRegressor
 from sklearn.ensemble import RandomForestRegressor
 import matplotlib.pyplot as plt
 import numpy as np
@@ -24,14 +22,14 @@ def make_feature(name_dict, test, num):
     dir_path = 'Feature_Result'
     csv_filename = test + '.csv'
     csv_path = os.path.join(dir_path, csv_filename)
-    df.to_csv(csv_path)  # relative position
+    df.to_csv(csv_path)   # relative position
 
     data = pd.read_csv(csv_path)
     # select all rows ignore last column 'riders'
     features = data.iloc[:, :-1]
     # select all rows ignore all columns except lst one 'riders'
     labels = data.iloc[:, -1:]
-# Create an untrained model and train the model
+    # Create an untrained model and train the model
     model = RandomForestRegressor(n_estimators=100, random_state=0)
     model.fit(features, labels)
     feat_importance = model.feature_importances_
@@ -50,6 +48,12 @@ def make_feature(name_dict, test, num):
 
 
 def main():
+    """
+    The main function for make dataframes for each districts and
+    call the make_feature functions to do machine learning and save
+    all the results including csv file and plots in the directory
+    'Feature_Result'
+    """
     name_dict1 = {
         # 'Year': [2015, 2016, 2018, 2019, 2020, 2021],
         'BKF-BL': [3, 23, 23, 23, 23, 23],

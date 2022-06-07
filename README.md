@@ -85,3 +85,16 @@ Line graph:
 
 Map graph:
     While filtering the INSTALL_DAT based on the selected years, use fig, ax to plot the graph onto one png file. This will allow the user to examine all four graphs at once. After plotting, four graphs should be produced.
+
+
+create_csv.py
+This file is used to create a series of csv files related to the number of different bike infrastructures, years and the number of riders in each districts.
+These new datasets would be stored in a directory called 'DISTRICT' and would be used later in the prediction.py to be combined with the number of riders in each districts corresponding to years.
+
+
+prediction.py:
+--1: Create new datasets which consistes of bike infrastructures and number of riderships and do machine learning training.
+--2: Train the new dataset by using the random forest regressor model.
+    The new datasets are named based on different districts.
+    The results are displayed by bar plots.
+    All the new datasets and plots are stored in the directory 'Feature_Result'.
