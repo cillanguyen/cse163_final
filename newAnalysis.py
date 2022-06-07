@@ -22,7 +22,7 @@ def main():
     sns.lineplot(data=year, x='INSTALL_DATE', y='NUM', hue='CATEGORY')
 
     plt.xlabel('Dates of Installment')
-    plt.ylabel('Num of Bike Infrastructures')
+    plt.ylabel('Segments of Bike Infrastructures')
     plt.title('Number of Bike Infrastructures built in 2010-2021')
     plt.savefig('bike_infrastructures_plot.png')
 
