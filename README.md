@@ -55,7 +55,12 @@ existing_inf.py:
 ridership_graphing.py:
     Run in order to plot the percent change in amount of bike riders recorded at both the various bike counters around Seattle and in total. The resulting plot is saved as "annual_ridership.png".
 
---3: NETWORK ANALYSIS--
+--3: LENGTH ANALYSIS--
+
+length.py:
+    Run in order to generate a plot of total bike infrastructure network length (in miles) over time. The resulting plot is saved as "length_plot.png".
+
+--4: NETWORK ANALYSIS--
 
 bike_network.py:
     Run in order to plot the percent change in the "Connectivity Metric" of Seattle's bike infrastructure over time. This is calculated and plotted for both each individual kind of bike infrastructure and for the overall system. This uses the 'networkx' module. The resulting plot is saved as "connectivity_graph.png".
