@@ -1,19 +1,20 @@
-from locale import normalize
+# from locale import normalize
 import pandas as pd
-from sklearn.tree import DecisionTreeRegressor
+# from sklearn.tree import DecisionTreeRegressor
 from sklearn.ensemble import RandomForestRegressor
 import matplotlib.pyplot as plt
 import numpy as np
 import os
 
 # 1. define a function
-# 2. call function 7 time 
+# 2. call function 7 time
 # 3. print the result each time
+
 
 def make_feature(name_dict, test, num):
     """
     This function used to do machine learning on the current dataset
-    and obtain the feature importance for the regressor model which 
+    and obtain the feature importance for the regressor model which
     represent the influence on the number of riders
     by different bike infrastructure.
     The feature influences for each distrcit would be showed as a bar plot.
@@ -23,7 +24,7 @@ def make_feature(name_dict, test, num):
     dir_path = 'Feature_Result'
     csv_filename = test + '.csv'
     csv_path = os.path.join(dir_path, csv_filename)
-    df.to_csv(csv_path) # relative position
+    df.to_csv(csv_path)  # relative position
 
     data = pd.read_csv(csv_path)
     # select all rows ignore last column 'riders'
@@ -50,13 +51,13 @@ def make_feature(name_dict, test, num):
 
 def main():
     name_dict1 = {
-    # 'Year': [2015, 2016, 2018, 2019, 2020, 2021],
-    'BKF-BL': [3, 23, 23, 23, 23, 23],
-    'BKF-NGW': [28, 2, 13, 35, 35, 15],
-    'BKF-OFFSET': [2, 2, 2, 2, 2, 2],
-    'BKF-PBL': [2, 2, 2, 2, 8, 8],
-    'BKF-SHW': [7, 7, 7, 7, 7, 7],
-    'Riders': [342540, 326943, 316987, 357282, 311292, 264103]
+        # 'Year': [2015, 2016, 2018, 2019, 2020, 2021],
+        'BKF-BL': [3, 23, 23, 23, 23, 23],
+        'BKF-NGW': [28, 2, 13, 35, 35, 15],
+        'BKF-OFFSET': [2, 2, 2, 2, 2, 2],
+        'BKF-PBL': [2, 2, 2, 2, 8, 8],
+        'BKF-SHW': [7, 7, 7, 7, 7, 7],
+        'Riders': [342540, 326943, 316987, 357282, 311292, 264103]
     }
     name_dict2 = {
         # 'Year': [2014, 2015, 2020, 2021],
@@ -74,7 +75,8 @@ def main():
         'BKF-OFFSET': [0, 0, 0, 0, 0, 0, 0, 0],
         'BKF-PBL': [39, 40, 43, 47, 47, 54, 56, 56],
         'BKF-SHW': [7, 7, 7, 7, 7, 7, 7, 7],
-        'Riders': [375061, 345642, 301097, 306970, 307648, 307342, 225966, 165491]
+        'Riders': [375061, 345642, 301097, 306970, 307648, 307342,
+                   225966, 165491]
     }
     name_dict4 = {
         # 'Year': [2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021],
@@ -83,7 +85,8 @@ def main():
         'BKF-OFFSET': [0, 0, 0, 0, 0, 0, 0, 0],
         'BKF-PBL': [7, 36, 58, 73, 73, 89, 89, 89],
         'BKF-SHW': [93, 93, 93, 93, 93, 93, 93, 93],
-        'Riders': [375061, 345642, 301097, 306970, 307648, 307342, 225966, 165491]
+        'Riders': [375061, 345642, 301097, 306970, 307648, 307342,
+                   225966, 165491]
     }
     name_dict6 = {
         # 'Year': [2014, 2015, 2016, 2017, 2018, 2019],
@@ -101,7 +104,8 @@ def main():
         'BKF-OFFSET': [3, 5, 6, 6, 6, 6, 6],
         'BKF-PBL': [48, 51, 89, 108, 129, 137, 139],
         'BKF-SHW': [172, 172, 172, 172, 172, 172, 173],
-        'Riders': [2601263, 2607327, 2555394, 2856935, 3382587, 1579167, 1346269]
+        'Riders': [2601263, 2607327, 2555394, 2856935, 3382587,
+                   1579167, 1346269]
     }
     print("test")
 
@@ -111,7 +115,6 @@ def main():
     make_feature(name_dict4, 'District4', 4)
     make_feature(name_dict6, 'District6', 5)
     make_feature(name_dict7, 'District7', 6)
-    
 
 
 if __name__ == "__main__":

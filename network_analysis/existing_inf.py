@@ -1,3 +1,7 @@
+"""
+Reorganizes and filters existing bike infrastructure data.
+Prepares for analysis with networkx graphs.
+"""
 import pandas as pd
 import pickle
 
