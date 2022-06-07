@@ -4,12 +4,13 @@ from sklearn.tree import DecisionTreeRegressor
 from sklearn.ensemble import RandomForestRegressor
 import matplotlib.pyplot as plt
 import numpy as np
+import os
 
 # 1. define a function
 # 2. call function 7 time 
 # 3. print the result each time
 
-def make_feature(name_dict, test):
+def make_feature(name_dict, test, num):
     """
     This function used to do machine learning on the current dataset
     and obtain the feature importance for the regressor model which 
@@ -19,10 +20,12 @@ def make_feature(name_dict, test):
     """
     df = pd.DataFrame(name_dict)
     # print(df)
-    path = test + '.csv'
-    df.to_csv(path) # relative position
+    dir_path = 'Feature_Result'
+    csv_filename = test + '.csv'
+    csv_path = os.path.join(dir_path, csv_filename)
+    df.to_csv(csv_path) # relative position
 
-    data = pd.read_csv(path)
+    data = pd.read_csv(csv_path)
     # select all rows ignore last column 'riders'
     features = data.iloc[:, :-1]
     # select all rows ignore all columns except lst one 'riders'
@@ -35,11 +38,13 @@ def make_feature(name_dict, test):
 
     bike = ['BKF-BL', 'BKF-NGW', 'BKF-OFFSET', 'BKF-PBL', 'BKF-SHW']
     np.array(bike)
-    plt.bar(bike,importance)
+    plt.figure(num)
+    plt.bar(bike, importance)
     plt.xlabel("Bike Infrastructure")
     plt.title(test + " Feature Importances")
-    image = test + '.png'
-    plt.savefig(image)
+    image_name = test + '.png'
+    image_path = os.path.join(dir_path, image_name)
+    plt.savefig(image_path)
     print(importance)
 
 
@@ -100,12 +105,12 @@ def main():
     }
     print("test")
 
-    # make_feature(name_dict1, 'Distrcit1')
-    # make_feature(name_dict2, 'District2')
-    # make_feature(name_dict3, 'District3')
-    # make_feature(name_dict4, 'District4')
-    # make_feature(name_dict6, 'District6')
-    make_feature(name_dict7, 'District7')
+    make_feature(name_dict1, 'Distrcit1', 1)
+    make_feature(name_dict2, 'District2', 2)
+    make_feature(name_dict3, 'District3', 3)
+    make_feature(name_dict4, 'District4', 4)
+    make_feature(name_dict6, 'District6', 5)
+    make_feature(name_dict7, 'District7', 6)
     
 
 
